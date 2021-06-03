@@ -1,9 +1,11 @@
-import { Box } from '@material-ui/core';
+import { Container } from '@material-ui/core';
 import React from 'react';
 import { connect } from 'react-redux';
 import { RootState } from '../../store';
 import { AppRoute, Route } from '../../store/routes';
 import { routeSelector } from '../../store/state/selectors';
+import { Home } from '../Home';
+import { useStyles } from './styled';
 
 interface AppProps {
   route: AppRoute;
@@ -12,26 +14,34 @@ interface AppProps {
 const App: React.FC<AppProps> = (props) => {
   const { route } = props;
 
+  const styles = useStyles();
+
   let content = null;
 
   switch (route.name) {
     case Route.Home:
-      content = <h1>Home</h1>;
+      content = <Home />;
       break;
     case Route.WeaponGenerator:
-      content = <h1>Weapon Generator</h1>
+      // @todo: weapon generator page
+      content = <h1>Weapon Generator</h1>;
       break;
   }
 
   return (
-    <Box>
-      {content}
-    </Box>
+    <main>
+      <header className={styles.header}>
+        {/* @todo: navigation */}
+      </header>
+      <Container maxWidth="lg" className={styles.content}>
+        {content}
+      </Container>
+    </main>
   );
-}
+};
 
 const mapStateToProps = (state: RootState) => ({
   route: routeSelector(state),
-})
+});
 
 export default connect(mapStateToProps)(App);

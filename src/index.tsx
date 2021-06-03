@@ -4,7 +4,6 @@ import reportWebVitals from './reportWebVitals';
 import { ThemeProvider } from '@material-ui/core/styles';
 import App from './components/App';
 import './index.css';
-import { DefaultTheme } from './theme/types';
 import { defaultTheme } from './theme/default';
 import { Provider } from 'react-redux';
 import { store } from './store';
@@ -16,7 +15,7 @@ ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
       <RouterProvider router={router}>
-        <ThemeProvider<DefaultTheme> theme={defaultTheme}>
+        <ThemeProvider theme={defaultTheme}>
           <App />
         </ThemeProvider>
       </RouterProvider>

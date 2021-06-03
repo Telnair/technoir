@@ -1,15 +1,30 @@
-import { DefaultTheme } from './types';
+import { createMuiTheme } from '@material-ui/core';
 
-export const defaultTheme: DefaultTheme = {
+export const defaultTheme = createMuiTheme({
   spacing: 8,
+  typography: {
+    fontFamily: 'Roboto',
+    fontSize: 18,
+    h1: {
+      fontSize: 48,
+    },
+    h2: {
+      fontSize: 32,
+    },
+    h3: {
+      fontSize: 24,
+    }
+  },
   palette: {
-    black: '#000',
-    white: '#fff',
-    transparent: 'rgba(255, 255, 255, 0)',
-    pale50: '#A8A7A7',
-    pale60: '#474747',
-    pale70: '#363636',
-    accent40: '#CC527A',
-    accent50: '#E8175D',
+    primary: {
+      light: '#CC527A',
+      main: '#E8175D',
+      contrastText: '#021622',
+    },
+    secondary: {
+      light: '#A8A7A7',
+      main: '#474747',
+      dark: '#363636',
+    },
   }
-}
+});
