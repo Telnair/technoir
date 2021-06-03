@@ -6,8 +6,8 @@ const HEADER_HEIGHT = 56;
 export const useStyles = makeStyles((theme: Theme) => ({
   header: {
     height: HEADER_HEIGHT,
-    background: theme.palette.primary.light,
-    borderBottom: `5px solid ${theme.palette.primary.main}`,
+    background: 'rgba(0,0,0,.3)',
+    borderTop: `3px solid ${theme.palette.primary.main}`,
   },
   content: {
     background: 'rgba(0,0,0,.2)',
