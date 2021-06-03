@@ -1,12 +1,26 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { ThemeProvider } from '@material-ui/core/styles';
+import App from './components/App';
+import './index.css';
+import { DefaultTheme } from './theme/types';
+import { defaultTheme } from './theme/default';
+import { Provider } from 'react-redux';
+import { store } from './store';
+import { RouterProvider } from 'react-router5';
+import { router } from './store/routes';
+
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <Provider store={store}>
+      <RouterProvider router={router}>
+        <ThemeProvider<DefaultTheme> theme={defaultTheme}>
+          <App />
+        </ThemeProvider>
+      </RouterProvider>
+    </Provider>
   </React.StrictMode>,
   document.getElementById('root')
 );
