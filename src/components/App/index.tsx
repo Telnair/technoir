@@ -4,8 +4,8 @@ import { connect } from 'react-redux';
 import { RootState } from '../../store';
 import { AppRoute, Route } from '../../store/routes';
 import { routeSelector } from '../../store/state/selectors';
+import { Header } from '../Header';
 import { Home } from '../Home';
-import { useStyles } from './styled';
 
 interface AppProps {
   route: AppRoute;
@@ -14,51 +14,45 @@ interface AppProps {
 const App: React.FC<AppProps> = (props) => {
   const { route } = props;
 
-  const styles = useStyles();
-
-  let content: React.ReactNode = <Typography variant="h1">Not Found</Typography>;
+  let content = null;
 
   switch (route.name) {
     case Route.Home:
       content = <Home />;
       break;
     case Route.Weapons:
-      content = <Typography variant="h1">Weapons</Typography>;
+      content = <Typography variant="h1" align="center">Weapons</Typography>;
       break;
     case Route.Characters:
-      content = <Typography variant="h1">Characters</Typography>;
+      content = <Typography variant="h1" align="center">Characters</Typography>;
       break;
     case Route.Library:
-      content = <Typography variant="h1">Library</Typography>;
+      content = <Typography variant="h1" align="center">Library</Typography>;
       break;
     case Route.Weapon:
-      content = <Typography variant="h1">Weapon {route.params.id}</Typography>;
+      content = <Typography variant="h1" align="center">Weapon {route.params.id}</Typography>;
       break;
     case Route.Character:
-      content = <Typography variant="h1">Character {route.params.id}</Typography>;
+      content = <Typography variant="h1" align="center">Character {route.params.id}</Typography>;
       break;
     case Route.Article:
-      content = <Typography variant="h1">Article {route.params.id}</Typography>;
+      content = <Typography variant="h1" align="center">Article {route.params.id}</Typography>;
       break;
     case Route.NewWeapon:
-      content = <Typography variant="h1">New Weapon</Typography>;
+      content = <Typography variant="h1" align="center">New Weapon</Typography>;
       break;
     case Route.NewCharacter:
-      content = <Typography variant="h1">New Character</Typography>;
+      content = <Typography variant="h1" align="center">New Character</Typography>;
       break;
     case Route.NewArticle:
-      content = <Typography variant="h1">New Article</Typography>;
+      content = <Typography variant="h1" align="center">New Article</Typography>;
       break;
   }
 
   return (
     <main>
-      <header className={styles.header}>
-        {/* @todo: navigation */}
-      </header>
-      <Container maxWidth="lg" className={styles.content}>
-        {content}
-      </Container>
+      <Header activeRoute={route.name} />
+      <Container maxWidth="lg">{content}</Container>
     </main>
   );
 };
