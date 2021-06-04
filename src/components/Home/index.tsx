@@ -25,7 +25,9 @@ export const Home: React.FC = () => {
       <Box className={styles.image}>
         <img src="technoir.png" />
       </Box>
-      <Typography variant="h3" component="h2" align="center">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Error sequi ullam ipsa libero optio ex nulla. Nihil amet ratione, reiciendis laborum earum eum asperiores. Accusamus, sed? Labore nisi velit sunt.</Typography>
+      <Typography variant="h3" component="h2" align="center">
+        This application is designed specifically for our own fully custom Technoir DnD game. The game is set in 2030 and the technologies are as advanced as they can be. Cybernetics is in every house now and the world is divided into 5 large conglomerates trying to exploit the most that they can from our mortal souls. <br />Join in and have fun!
+      </Typography>
     </Box>
   );
 };
