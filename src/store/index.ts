@@ -21,6 +21,7 @@ export const store = configureStore({
 });
 
 sagaMiddleware.run(rootSaga);
+
 router.usePlugin(browserPlugin());
 router.start();
 

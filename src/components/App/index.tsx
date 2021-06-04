@@ -1,11 +1,21 @@
-import { Container, Typography } from '@material-ui/core';
+import { Container, makeStyles, Theme, Typography } from '@material-ui/core';
 import React from 'react';
 import { connect } from 'react-redux';
 import { RootState } from '../../store';
 import { AppRoute, Route } from '../../store/routes';
 import { routeSelector } from '../../store/state/selectors';
-import { Header } from '../Header';
+import { NAVIGATION_HEIGHT } from '../constants/layout';
+import { Navigation } from '../Navigation';
 import { Home } from '../Home';
+
+const useStyles = makeStyles((theme: Theme) => ({
+  container: {
+    paddingBottom: NAVIGATION_HEIGHT,
+    [theme.breakpoints.down('sm')]: {
+      paddingTop: theme.spacing(2),
+    }
+  },
+}));
 
 interface AppProps {
   route: AppRoute;
@@ -13,6 +23,8 @@ interface AppProps {
 
 const App: React.FC<AppProps> = (props) => {
   const { route } = props;
+
+  const styles = useStyles();
 
   let content = null;
 
@@ -51,8 +63,8 @@ const App: React.FC<AppProps> = (props) => {
 
   return (
     <main>
-      <Header activeRoute={route.name} />
-      <Container maxWidth="lg">{content}</Container>
+      <Navigation activeRoute={route.name} />
+      <Container maxWidth="lg" className={styles.container}>{content}</Container>
     </main>
   );
 };
