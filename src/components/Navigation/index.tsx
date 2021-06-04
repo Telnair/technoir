@@ -23,12 +23,14 @@ const useStyles = makeStyles((theme: Theme) => ({
       top: 0,
       position: 'sticky',
       marginBottom: theme.spacing(4),
+      boxShadow: `0 0 15px 0 ${theme.palette.primary.main}`,
     },
     [theme.breakpoints.down('sm')]: {
       bottom: 0,
       left: 0,
       right: 0,
       position: 'fixed',
+      boxShadow: `0 0 30px 0 ${theme.palette.primary.main}`,
     },
   },
 }));

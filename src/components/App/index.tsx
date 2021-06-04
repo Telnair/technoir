@@ -10,7 +10,7 @@ import { Home } from '../Home';
 
 const useStyles = makeStyles((theme: Theme) => ({
   container: {
-    paddingBottom: NAVIGATION_HEIGHT,
+    paddingBottom: NAVIGATION_HEIGHT * 2,
     [theme.breakpoints.down('sm')]: {
       paddingTop: theme.spacing(2),
     }

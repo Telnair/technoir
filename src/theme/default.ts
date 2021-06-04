@@ -24,6 +24,7 @@ defaultTheme.typography.h1 = {
   fontSize: 48,
   lineHeight: '56px',
   fontWeight: 500,
+  fontFamily: 'Major Mono Display',
   [defaultTheme.breakpoints.down('sm')]: {
     fontSize: 32,
     lineHeight: '38px',
@@ -34,6 +35,7 @@ defaultTheme.typography.h2 = {
   fontSize: 32,
   lineHeight: '38px',
   fontWeight: 500,
+  fontFamily: 'Major Mono Display',
   [defaultTheme.breakpoints.down('sm')]: {
     fontSize: 21,
     lineHeight: '27px',
@@ -44,6 +46,7 @@ defaultTheme.typography.h3 = {
   fontSize: 24,
   lineHeight: '31px',
   fontWeight: 500,
+  fontFamily: 'Major Mono Display',
   [defaultTheme.breakpoints.down('sm')]: {
     fontSize: 18,
     lineHeight: '25px',

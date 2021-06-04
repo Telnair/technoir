@@ -4,7 +4,7 @@ import React from 'react';
 
 const useStyles = makeStyles((theme: Theme) => ({
   image: {
-    margin: theme.spacing(4, 'auto'),
+    margin: theme.spacing(4, 'auto', 3),
     borderRadius: 8,
     overflow: 'hidden',
     width: 600,
@@ -13,7 +13,7 @@ const useStyles = makeStyles((theme: Theme) => ({
     justifyContent: 'center',
     '& img': {
       maxWidth: '100%',
-    }
+    },
   },
 }));
 
@@ -22,12 +22,12 @@ export const Home: React.FC = () => {
 
   return (
     <>
-      <Typography variant="h1" align="center">Welcome to Technoir!</Typography>
+      <Typography variant="h1" align="center">Technoir</Typography>
       <div className={styles.image}>
         <img src="technoir.png" />
       </div>
       <Typography variant="h3" component="h2" align="center">
-        This application is designed specifically for our own fully custom Technoir DnD game. The game is set in 2030 and the technologies are as advanced as they can be. Cybernetics is in every house now and the world is divided into 5 large conglomerates trying to exploit the most that they can from our mortal souls. <br />Join in and have fun!
+        The year is 2027. The humanity befell victim to its own greed. The divide has never been greater. The rich and the high society are wallowing in their own gluttony, while the slums are disease ridden and poverty stricken. It&nbsp;s cannibalize, or be cannibalized. Enter the world of Technoir as mercenaries - people fated to be inbetween, spend their days getting hands dirty for corporate filth to put food on their table. Or maybe... just maybe... the right man in the wrong place can make all the difference in the world. 
       </Typography>
     </>
   );
