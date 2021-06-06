@@ -23,9 +23,12 @@ const useStyles = makeStyles((theme: Theme) => ({
     background: fade(theme.palette.common.white, 0.07),
     borderBottom: `5px solid ${theme.palette.primary.light}`,
     transition: 'border-color .2s',
-    boxShadow: `0 15px 30px -15px ${theme.palette.primary.main}`,
+    boxShadow: `0 15px 20px -15px ${theme.palette.primary.main}`,
     '&:hover': {
       borderColor: theme.palette.primary.main,
+    },
+    [theme.breakpoints.down('sm')]: {
+      height: 160,
     },
     '& h2': {
       fontSize: 80,

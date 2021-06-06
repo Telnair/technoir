@@ -13,7 +13,7 @@ const useStyles = makeStyles((theme: Theme) => ({
   },
   grid: {
     display: 'grid',
-    gap: theme.spacing(2, 2),
+    gap: theme.spacing(4, 2),
     gridTemplateColumns: '1fr 1fr 1fr',
     [theme.breakpoints.down('sm')]: {
       gridTemplateColumns: '1fr',
