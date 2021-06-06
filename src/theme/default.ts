@@ -25,6 +25,7 @@ defaultTheme.typography.h1 = {
   lineHeight: '56px',
   fontWeight: 500,
   fontFamily: 'Major Mono Display',
+  marginBottom: defaultTheme.spacing(4),
   [defaultTheme.breakpoints.down('sm')]: {
     fontSize: 32,
     lineHeight: '38px',

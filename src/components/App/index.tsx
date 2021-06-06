@@ -6,7 +6,9 @@ import { AppRoute, Route } from '../../store/routes';
 import { routeSelector } from '../../store/state/selectors';
 import { NAVIGATION_HEIGHT } from '../constants/layout';
 import { Navigation } from '../Navigation';
-import { Home } from '../Home';
+
+import Home from '../pages/Home';
+import Weapons from '../pages/Weapons';
 
 const useStyles = makeStyles((theme: Theme) => ({
   container: {
@@ -33,7 +35,7 @@ const App: React.FC<AppProps> = (props) => {
       content = <Home />;
       break;
     case Route.Weapons:
-      content = <Typography variant="h1" align="center">Weapons</Typography>;
+      content = <Weapons />;
       break;
     case Route.Characters:
       content = <Typography variant="h1" align="center">Characters</Typography>;

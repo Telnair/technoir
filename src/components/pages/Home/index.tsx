@@ -4,7 +4,7 @@ import React from 'react';
 
 const useStyles = makeStyles((theme: Theme) => ({
   image: {
-    margin: theme.spacing(4, 'auto', 3),
+    margin: theme.spacing(0, 'auto', 3),
     borderRadius: 8,
     overflow: 'hidden',
     width: 600,
@@ -17,7 +17,7 @@ const useStyles = makeStyles((theme: Theme) => ({
   },
 }));
 
-export const Home: React.FC = () => {
+const Home: React.FC = () => {
   const styles = useStyles();
 
   return (
@@ -35,3 +35,5 @@ export const Home: React.FC = () => {
     </>
   );
 };
+
+export default Home;
