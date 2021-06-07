@@ -43,14 +43,20 @@ const App: React.FC<AppProps> = (props) => {
     case Route.Library:
       content = <Typography variant="h1" align="center">Library</Typography>;
       break;
+    case Route.Abilities:
+      content = <Typography variant="h1" align="center">Abilities</Typography>;
+      break;
     case Route.Weapon:
       content = <Typography variant="h1" align="center">Weapon {route.params.id}</Typography>;
       break;
     case Route.Character:
-      content = <Typography variant="h1" align="center">Character {route.params.id}</Typography>;
+      content = <Typography variant="h1" align="center">People {route.params.id}</Typography>;
       break;
     case Route.Article:
       content = <Typography variant="h1" align="center">Article {route.params.id}</Typography>;
+      break;
+    case Route.Ability:
+      content = <Typography variant="h1" align="center">Ability {route.params.id}</Typography>;
       break;
     case Route.NewWeapon:
       content = <Typography variant="h1" align="center">New Weapon</Typography>;
@@ -61,6 +67,10 @@ const App: React.FC<AppProps> = (props) => {
     case Route.NewArticle:
       content = <Typography variant="h1" align="center">New Article</Typography>;
       break;
+    case Route.NewAbility:
+      content = <Typography variant="h1" align="center">New Ability</Typography>;
+      break;
+    
   }
 
   return (

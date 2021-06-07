@@ -1,14 +1,14 @@
 import { fade, makeStyles, Theme, Typography } from '@material-ui/core';
 import React from 'react';
 import { RouteParams, Route } from '../../store/routes';
-import { BaseDataItem, DataItem } from '../../utils/entities';
+import { DataItem, Weapon } from '../../utils/entities';
 import { Link } from '../Link';
 import { WeaponResume } from './WeaponResume';
 
-interface CardProps<T> {
+interface CardProps {
   routeName: Route;
   routeParams?: RouteParams;
-  item?: T,
+  item?: DataItem;
   isNew?: boolean;
 }
 
@@ -50,7 +50,7 @@ const useStyles = makeStyles((theme: Theme) => ({
   },
 }));
 
-export const Card = <T extends DataItem>(props: CardProps<T>) => {
+export const Card = (props: CardProps) => {
   const { item, routeName, routeParams, isNew = false } = props;
   const styles = useStyles({ isNew });
 
@@ -68,7 +68,7 @@ export const Card = <T extends DataItem>(props: CardProps<T>) => {
 
     switch (item.type) {
       case 'weapon':
-        resume = <WeaponResume item={item} />;
+        resume = <WeaponResume item={item as Weapon} />;
         break;
     }
 

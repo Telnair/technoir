@@ -14,7 +14,7 @@ const useStyles = makeStyles((theme: Theme) => ({
     alignItems: 'center',
     justifyContent: 'center',
     '& > p:not(:last-of-type)': {
-      marginRight: theme.spacing(3),
+      marginRight: theme.spacing(2),
       [theme.breakpoints.up('sm')]: {
         marginRight: theme.spacing(6),
       }
@@ -41,7 +41,8 @@ interface NavigationProps {
 
 const NAVIGATION_LINKS: Array<{ routeName: Route, label: string }> = [
   { routeName: Route.Home, label: 'Home' },
-  { routeName: Route.Characters, label: 'Characters' },
+  { routeName: Route.Characters, label: 'People' },
+  { routeName: Route.Abilities, label: 'Abilities' },
   { routeName: Route.Weapons, label: 'Weapons' },
   { routeName: Route.Library, label: 'Library' },
 ];

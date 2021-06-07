@@ -5,9 +5,6 @@ import { DataItem, DataType } from '../../utils/entities';
 import { Card } from '../Card';
 
 const useStyles = makeStyles((theme: Theme) => ({
-  wrapper: {
-
-  },
   search: {
 
   },
@@ -21,8 +18,8 @@ const useStyles = makeStyles((theme: Theme) => ({
   },
 }));
 
-interface ListProps<T> {
-  data: T[];
+interface ListProps {
+  data: DataItem[];
   createRoute?: Route;
 }
 
@@ -30,20 +27,21 @@ const typeToRoute: Record<DataType, Route> = {
   'weapon': Route.Weapon,
   'article': Route.Article,
   'character': Route.Character,
+  'ability': Route.Ability,
 };
 
-export const List = <T extends DataItem>(props: ListProps<T>) => {
+export const List = (props: ListProps) => {
   const { data, createRoute } = props;
   const styles = useStyles();
 
   return (
-    <section className={styles.wrapper}>
+    <section>
       <div className={styles.grid}>
         {createRoute ? (
-          <Card<T> routeName={createRoute} isNew />
+          <Card routeName={createRoute} isNew />
         ) : null}
         {data.map(item => (
-          <Card<T> routeName={typeToRoute[item.type]} routeParams={{ id: item.id }} key={item.id} item={item} />
+          <Card routeName={typeToRoute[item.type]} routeParams={{ id: item.id }} key={item.id} item={item} />
         ))}
       </div>
     </section>

@@ -3,7 +3,7 @@ export type DamageRange = number | 'D3' | 'D6' | 'D3+3' | 'D6+3';
 export type StrengthRange = number | '+1' | '+2' | '+3' | '+4' | '+5' | 'x2' | 'User';
 export type AttacksRange = number | 'D3' | 'D6';
 
-export type DataType = 'weapon' | 'character' | 'article';
+export type DataType = 'weapon' | 'character' | 'article' | 'ability';
 
 export interface BaseDataItem {
   id: string;
@@ -12,19 +12,16 @@ export interface BaseDataItem {
   createdAt: string;
 }
 
-export type DataItem = Weapon;
+export type DataItem = Weapon | Ability;
 
 type WeaponGrade = 'common' | 'uncommon' | 'rare' | 'legendary';
 
 type WeaponCategory = 
     'pistol' 
   | 'rifle' 
-  | 'dmr' 
   | 'sniper' 
   | 'shotgun' 
-  | 'flamer' 
-  | 'launcher' 
-  | 'chanelling' 
+  | 'launcher'
   | 'melee';
 
 export interface Weapon extends BaseDataItem {
@@ -38,5 +35,6 @@ export interface Weapon extends BaseDataItem {
 }
 
 export interface Ability extends BaseDataItem {
+  type: 'ability';
   description: string;
 }

@@ -16,7 +16,7 @@ const Weapons: React.FC<WeaponsProps> = (props) => {
   return (
     <>
       <Typography variant="h1" align="center">Weapons</Typography>
-      <List<Weapon> data={data} createRoute={Route.NewWeapon} />
+      <List data={data} createRoute={Route.NewWeapon} />
     </>
   );
 };

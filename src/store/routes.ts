@@ -11,6 +11,9 @@ export enum Route {
   NewWeapon = 'weapons.new',
   NewCharacter = 'characters.new',
   NewArticle = 'library.new',
+  Ability = 'abilities.ability',
+  Abilities = 'abilities',
+  NewAbility = 'abilities.new',
 }
 
 export interface RouteParams {
@@ -33,6 +36,9 @@ const routes = [
   { name: Route.Characters, path: '/characters' },
   { name: Route.Character, path: '/:id' },
   { name: Route.NewCharacter, path: '/new' },
+  { name: Route.Abilities, path: '/abilities' },
+  { name: Route.Ability, path: '/:id' },
+  { name: Route.NewAbility, path: '/new' },
 ];
 
 export const router = createRouter(routes, { allowNotFound: true });
