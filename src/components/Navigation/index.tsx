@@ -5,6 +5,14 @@ import { Route } from '../../store/routes';
 import { NAVIGATION_HEIGHT } from '../constants/layout';
 import { NavigationLink } from './NavigationLink';
 
+import { ReactComponent as HomeIcon } from '../../assets/svg/airtight-hatch.svg';
+import { ReactComponent as CharacterIcon } from '../../assets/svg/skills.svg';
+import { ReactComponent as WeaponsIcon } from '../../assets/svg/steyr-aug.svg';
+import { ReactComponent as AbilitiesIcon } from '../../assets/svg/charged-arrow.svg';
+import { ReactComponent as LibraryIcon } from '../../assets/svg/bookshelf.svg';
+import { ReactComponent as BattleIcon } from '../../assets/svg/empty-chessboard.svg';
+import { useIsMobile } from '../../hooks/useIsMobile';
+
 const useStyles = makeStyles((theme: Theme) => ({
   nav: {
     height: NAVIGATION_HEIGHT,
@@ -13,17 +21,14 @@ const useStyles = makeStyles((theme: Theme) => ({
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
-    '& > p:not(:last-of-type)': {
-      marginRight: theme.spacing(2),
-      [theme.breakpoints.up('sm')]: {
-        marginRight: theme.spacing(6),
-      }
-    },
     [theme.breakpoints.up('sm')]: {
       top: 0,
       position: 'sticky',
       marginBottom: theme.spacing(4),
       boxShadow: `0 0 15px 0 ${theme.palette.primary.main}`,
+      '& p:not(:last-of-type)': {
+        marginRight: theme.spacing(6),
+      },
     },
     [theme.breakpoints.down('sm')]: {
       bottom: 0,
@@ -31,6 +36,7 @@ const useStyles = makeStyles((theme: Theme) => ({
       right: 0,
       position: 'fixed',
       boxShadow: `0 0 30px 0 ${theme.palette.primary.main}`,
+      justifyContent: 'space-between',
     },
   },
 }));
@@ -39,18 +45,20 @@ interface NavigationProps {
   activeRoute: Route;
 }
 
-const NAVIGATION_LINKS: Array<{ routeName: Route, label: string }> = [
-  { routeName: Route.Characters, label: 'People' },
-  { routeName: Route.Abilities, label: 'Abilities' },
-  { routeName: Route.Weapons, label: 'Weapons' },
-  { routeName: Route.Library, label: 'Library' },
-  { routeName: Route.Battle, label: 'Battle' },
+const NAVIGATION_LINKS: Array<{ routeName: Route, label: string, icon: React.ReactNode }> = [
+  { routeName: Route.Home, label: 'Home', icon: <HomeIcon /> },
+  { routeName: Route.Characters, label: 'Characters', icon: <CharacterIcon /> },
+  { routeName: Route.Abilities, label: 'Abilities', icon: <AbilitiesIcon /> },
+  { routeName: Route.Weapons, label: 'Weapons', icon: <WeaponsIcon /> },
+  { routeName: Route.Library, label: 'Library', icon: <LibraryIcon /> },
+  { routeName: Route.Battle, label: 'Battle', icon: <BattleIcon /> },
 ];
 
 export const Navigation: React.FC<NavigationProps> = (props) => {
   const { activeRoute } = props;
 
   const styles = useStyles();
+  const isMobile = useIsMobile();
 
   return (
     <nav className={styles.nav}>
@@ -59,8 +67,10 @@ export const Navigation: React.FC<NavigationProps> = (props) => {
           key={link.routeName}
           routeName={link.routeName}
           isActive={link.routeName === activeRoute}
+          title={link.label}
         >
-          {link.label}
+          {link.icon}
+          {isMobile ? null : link.label}
         </NavigationLink>
       ))}
     </nav>

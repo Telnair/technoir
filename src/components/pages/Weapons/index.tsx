@@ -24,12 +24,13 @@ const Weapons: React.FC<WeaponsProps> = (props) => {
 const mockWeapons: Weapon[] = [
   {
     id: 'test-pistol',
-    name: 'Steet Rat Pistol',
+    name: 'Street Rat Pistol',
     type: 'weapon',
     createdAt: new Date().toISOString(),
     strength: 4,
     attacks: 1,
     damage: 1,
+    precision: '3+',
     category: 'pistol',
     grade: 'common',
     abilities: [],
@@ -42,8 +43,9 @@ const mockWeapons: Weapon[] = [
     strength: 5,
     attacks: 3,
     damage: 1,
+    precision: '3+',
     category: 'rifle',
-    grade: 'uncommon',
+    grade: 'rare',
     abilities: [],
   },
   {
@@ -54,8 +56,9 @@ const mockWeapons: Weapon[] = [
     strength: 'x2',
     attacks: 3,
     damage: 'D6+3',
+    precision: '2+',
     category: 'melee',
-    grade: 'legendary',
+    grade: 'elite',
     abilities: [],
   },
 ];

@@ -1,6 +1,11 @@
 import { Theme, Typography } from '@material-ui/core';
 import { makeStyles } from '@material-ui/styles';
 import { Weapon } from '../../utils/entities';
+import { ReactComponent as DamageIcon } from '../../assets/svg/broken-heart.svg';
+import { ReactComponent as StrengthIcon } from '../../assets/svg/cracked-shield.svg';
+import { ReactComponent as PrecisionIcon } from '../../assets/svg/archery-target.svg';
+import { ReactComponent as AttacksMeleeIcon } from '../../assets/svg/machete.svg';
+import { ReactComponent as AttacksRangedIcon } from '../../assets/svg/bullets.svg';
 
 const useStyles = makeStyles((theme: Theme) => ({
   info: {
@@ -12,6 +17,10 @@ const useStyles = makeStyles((theme: Theme) => ({
     marginTop: 'auto',
     '& span': {
       color: theme.palette.primary.main,
+    },
+    '& svg': {
+      width: 20,
+      height: 20,
     },
   },
   tags: {
@@ -50,9 +59,12 @@ export const WeaponResume: React.FC<WeaponResumeProps> = (props) => {
         <Typography className={styles.tag} variant="body1">{item.grade}</Typography>
       </div>
       <div className={styles.info}>
-        <Typography variant="body2">Attacks: <span>{item.attacks}</span></Typography>
-        <Typography variant="body2">Strength: <span>{item.strength}</span></Typography>
-        <Typography variant="body2">Damage: <span>{item.damage}</span></Typography>
+        <Typography variant="body2" title="attacks">
+          {item.category === 'melee' ? <AttacksMeleeIcon /> : <AttacksRangedIcon />}: <span>{item.attacks}</span>
+        </Typography>
+        <Typography variant="body2" title="precision"><PrecisionIcon />: <span>{item.precision}</span></Typography>
+        <Typography variant="body2" title="strength"><StrengthIcon />: <span>{item.strength}</span></Typography>
+        <Typography variant="body2" title="damage"><DamageIcon />: <span>{item.damage}</span></Typography>
       </div>
     </div>
   );
