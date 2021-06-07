@@ -70,7 +70,9 @@ const App: React.FC<AppProps> = (props) => {
     case Route.NewAbility:
       content = <Typography variant="h1" align="center">New Ability</Typography>;
       break;
-    
+    case Route.Battle:
+      content = <Typography variant="h1" align="center">Battle</Typography>;
+      break;
   }
 
   return (

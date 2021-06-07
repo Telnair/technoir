@@ -40,11 +40,11 @@ interface NavigationProps {
 }
 
 const NAVIGATION_LINKS: Array<{ routeName: Route, label: string }> = [
-  { routeName: Route.Home, label: 'Home' },
   { routeName: Route.Characters, label: 'People' },
   { routeName: Route.Abilities, label: 'Abilities' },
   { routeName: Route.Weapons, label: 'Weapons' },
   { routeName: Route.Library, label: 'Library' },
+  { routeName: Route.Battle, label: 'Battle' },
 ];
 
 export const Navigation: React.FC<NavigationProps> = (props) => {
