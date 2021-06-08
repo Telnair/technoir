@@ -5,6 +5,7 @@ import { router5Middleware, router5Reducer } from 'redux-router5';
 import { rootSaga } from './sagas';
 import { createLogger } from 'redux-logger';
 import browserPlugin from 'router5-plugin-browser';
+import domainDataReducer from './state/domainData';
 
 const logger = createLogger({});
 const sagaMiddleware = createSagaMiddleware({ context: { router } });
@@ -12,6 +13,7 @@ const sagaMiddleware = createSagaMiddleware({ context: { router } });
 export const store = configureStore({
   reducer: {
     router: router5Reducer,
+    domainData: domainDataReducer,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware()

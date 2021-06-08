@@ -60,11 +60,11 @@ export const WeaponResume: React.FC<WeaponResumeProps> = (props) => {
       </div>
       <div className={styles.info}>
         <Typography variant="body2" title="attacks">
-          {item.category === 'melee' ? <AttacksMeleeIcon /> : <AttacksRangedIcon />}: <span>{item.attacks}</span>
+          {item.category === 'melee' ? <AttacksMeleeIcon /> : <AttacksRangedIcon />} <span>{item.attacks}</span>
         </Typography>
-        <Typography variant="body2" title="precision"><PrecisionIcon />: <span>{item.precision}</span></Typography>
-        <Typography variant="body2" title="strength"><StrengthIcon />: <span>{item.strength}</span></Typography>
-        <Typography variant="body2" title="damage"><DamageIcon />: <span>{item.damage}</span></Typography>
+        <Typography variant="body2" title="precision"><PrecisionIcon /> <span>{item.precision}</span></Typography>
+        <Typography variant="body2" title="strength"><StrengthIcon /> <span>{item.strength}</span></Typography>
+        <Typography variant="body2" title="damage"><DamageIcon /> <span>{item.damage}</span></Typography>
       </div>
     </div>
   );

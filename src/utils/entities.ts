@@ -13,7 +13,9 @@ export interface BaseDataItem {
   name: string;
 }
 
-export type DataItem = Weapon | Ability;
+export type DataItem = Weapon | Ability | Article | Character;
+
+export type Trauma = 'head' | 'legs' | 'arms';
 
 type WeaponGrade = 'common' | 'rare' | 'elite';
 
@@ -33,10 +35,45 @@ export interface Weapon extends BaseDataItem {
   precision: PrecisionRange;
   strength: StrengthRange;
   damage: DamageRange;
-  abilities: Ability[];
+  abilities: WeaponAbility[];
+}
+
+export interface WeaponAbility extends BaseDataItem {
+  type: 'ability';
+  description: string;
+  limitation: 'melee' | 'ranged' | null;
 }
 
 export interface Ability extends BaseDataItem {
   type: 'ability';
   description: string;
+  price: number;
+  requirements: string[];
+  tags: string[];
+}
+
+export interface Character extends BaseDataItem {
+  type: 'character';
+  age: number;
+  motherland: string;
+  biography: string;
+  appearance: string;
+  principles: string;
+  goal: string;
+  hype: string;
+  strength: number;
+  resilience: number;
+  agility: number;
+  intellect: number;
+  health: number;
+  abilities: Ability[];
+  money: number;
+  traumas: Trauma[];
+}
+
+export interface Article extends BaseDataItem {
+  type: 'article';
+  tags: string[];
+  content: string;
+  hiddenContent: string;
 }
