@@ -23,19 +23,6 @@ const Weapons: React.FC<WeaponsProps> = (props) => {
 
 const mockWeapons: Weapon[] = [
   {
-    id: 'test-pistol',
-    name: 'Street Rat Pistol',
-    type: 'weapon',
-    createdAt: new Date().toISOString(),
-    strength: 4,
-    attacks: 1,
-    damage: 1,
-    precision: '3+',
-    category: 'pistol',
-    grade: 'common',
-    abilities: [],
-  },
-  {
     id: 'test-rifle',
     name: 'Craft Rifle',
     type: 'weapon',
