@@ -3,6 +3,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { RootState } from '../../../store';
 import { Route } from '../../../store/routes';
+import { weaponsSelector } from '../../../store/state/domainData/selectors';
 import { Weapon } from '../../../utils/entities';
 import { List } from '../../List';
 
@@ -21,38 +22,8 @@ const Weapons: React.FC<WeaponsProps> = (props) => {
   );
 };
 
-const mockWeapons: Weapon[] = [
-  {
-    id: 'test-rifle',
-    name: 'Craft Rifle',
-    type: 'weapon',
-    createdAt: new Date().toISOString(),
-    strength: 5,
-    attacks: 3,
-    damage: 1,
-    precision: '3+',
-    category: 'rifle',
-    grade: 'rare',
-    abilities: [],
-  },
-  {
-    id: 'test-sword',
-    name: 'Excalibur',
-    type: 'weapon',
-    createdAt: new Date().toISOString(),
-    strength: 'x2',
-    attacks: 3,
-    damage: 'D6+3',
-    precision: '2+',
-    category: 'melee',
-    grade: 'elite',
-    abilities: [],
-  },
-];
-
-// @todo: update to selector and BE-based data
 const mapStateToProps = ((state: RootState) => ({
-  data: mockWeapons,
+  data: weaponsSelector(state),
 }));
 
 export default connect(mapStateToProps)(Weapons);
