@@ -9,13 +9,18 @@ export type DataType = 'weapon' | 'character' | 'article' | 'ability';
 export interface BaseDataItem {
   id: string;
   type: DataType;
-  createdAt: string;
   name: string;
+  createdAt: string;
 }
 
 export type DataItem = Weapon | Ability | Article | Character;
 
-export type Trauma = 'head' | 'legs' | 'arms';
+export type TraumaType = 'head' | 'legs' | 'arms';
+
+export interface Trauma {
+  type: TraumaType;
+  penalties: StatTuple[];
+}
 
 type WeaponGrade = 'common' | 'rare' | 'elite';
 
@@ -45,6 +50,7 @@ export interface WeaponAbility extends BaseDataItem {
 }
 
 type Stat = 'strength' | 'resilience' | 'agility' | 'intellect' | 'health';
+type AbilityTag = 'passive' | 'active' | 'electronics';
 type StatTuple = [ Stat, number ];
 
 export interface Ability extends BaseDataItem {
@@ -53,18 +59,10 @@ export interface Ability extends BaseDataItem {
   statsBonus: StatTuple[];
   price: number;
   requirements: string[];
-  tags: string[];
+  tags: AbilityTag[];
 }
 
-export interface Character extends BaseDataItem {
-  type: 'character';
-  age: number;
-  motherland: string;
-  biography: string;
-  appearance: string;
-  principles: string;
-  goal: string;
-  hype: string;
+export interface BattleStats {
   strength: number;
   resilience: number;
   agility: number;
@@ -72,11 +70,31 @@ export interface Character extends BaseDataItem {
   health: number;
   abilities: Ability[];
   traumas: Trauma[];
-  money: number;
-  totalStatPoints: number;
-  totalUsedStatPoints: number;
-  totalUpgradePoints: number;
-  totalUsedUpgradePoints: number;
+  weapons: Weapon[];
+}
+
+export interface Character extends BaseDataItem, BattleStats {
+  type: 'character';
+  isNPC: boolean;
+  age: number;
+  motherland: string;
+  biography: string;
+  appearance: string;
+  principles: string;
+  goal: string;
+  hype: string;
+  equippedWeaponsIds: string[];
+  availableUpgradePoints: number;
+}
+
+export interface CharacterBattleCard extends BattleStats {
+  isEnemy: boolean;
+  name: string;
+  electronicsStatus: 'active' | 'passive' | 'disabled';
+  availableActions: number;
+  availableAbilities: number;
+  availableHP: number;
+  noAmmoWeapons: string[];
 }
 
 export interface Article extends BaseDataItem {
