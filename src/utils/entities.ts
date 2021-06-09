@@ -44,9 +44,13 @@ export interface WeaponAbility extends BaseDataItem {
   limitation: 'melee' | 'ranged' | null;
 }
 
+type Stat = 'strength' | 'resilience' | 'agility' | 'intellect' | 'health';
+type StatTuple = [ Stat, number ];
+
 export interface Ability extends BaseDataItem {
   type: 'ability';
   description: string;
+  statsBonus: StatTuple[];
   price: number;
   requirements: string[];
   tags: string[];
@@ -67,8 +71,12 @@ export interface Character extends BaseDataItem {
   intellect: number;
   health: number;
   abilities: Ability[];
-  money: number;
   traumas: Trauma[];
+  money: number;
+  totalStatPoints: number;
+  totalUsedStatPoints: number;
+  totalUpgradePoints: number;
+  totalUsedUpgradePoints: number;
 }
 
 export interface Article extends BaseDataItem {
